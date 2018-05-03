@@ -1,7 +1,5 @@
 ## ZOX APP
 
-**Zox Test App**.
-
 ## Getting Started
     npm install
     npm run build
