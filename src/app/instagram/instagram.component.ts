@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
-import { URLS } from "../constant/constant";
+import { URLS, LOCAL_STORAGE_CONSTANTS } from "../constant/constant";
 import { StorageService } from "../service/storage.service";
 import { UserService } from "../service/user.service";
 import { InstagramModel } from '../model/instagram.model';
@@ -18,10 +18,7 @@ export class InstagramComponent implements OnInit {
   public instaData: Array<any> = [];
 
   ngOnInit() {
-    let access_token = this._storageService.getValueFromLocalStorage("access_token");
-    if(!access_token){
-      this._router.navigate(['/']);
-    }
+    let access_token = this._storageService.getValueFromLocalStorage(LOCAL_STORAGE_CONSTANTS.access_token);
     let url = URLS.instagramUserDetails + "?access_token=" + access_token;
     this._userService.getCall(url).subscribe((data: any)=>{
       if(data.data){

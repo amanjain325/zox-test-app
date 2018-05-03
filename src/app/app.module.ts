@@ -20,12 +20,14 @@ import { StorageService } from './service/storage.service';
 import { UserService } from './service/user.service';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { TwitterComponent } from './twitter/twitter.component';
+import { AuthGuard } from './service/authGuard.service';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
   StorageService,
-  UserService
+  UserService,
+  AuthGuard
 ];
 const COMPONENTS = [
   AppComponent,

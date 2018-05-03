@@ -16,7 +16,7 @@ export class HeaderComponent {
     this._router.events
       .filter(val => val instanceof NavigationEnd)
       .subscribe((val: any) => {
-        if (val && val.url == "/") {
+        if (val && val.urlAfterRedirects == "/") {
           this.isHomePage = true;
         } else {
           this.isHomePage = false;
