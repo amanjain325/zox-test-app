@@ -10,16 +10,36 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
+import { HeaderComponent } from './header/header.component';
+import { InstagramComponent } from './instagram/instagram.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import { HeaderComponent } from './header/header.component';
-
+import { LoginComponent } from './login/login.component';
+import { StorageService } from './service/storage.service';
+import { UserService } from './service/user.service';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { TwitterComponent } from './twitter/twitter.component';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  StorageService,
+  UserService
 ];
+const COMPONENTS = [
+  AppComponent,
+  HomeComponent,
+  HeaderComponent,
+  InstagramComponent,
+  LoginComponent,
+  TwitterComponent
+];
+const PIPES = [
+  EllipsisPipe
+];
+
+
 
 interface StoreType {
   state: InternalStateType;
@@ -30,9 +50,8 @@ interface StoreType {
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent
+    COMPONENTS,
+    PIPES
   ],
   imports: [
     BrowserModule,

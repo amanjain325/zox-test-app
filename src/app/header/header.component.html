@@ -1,7 +1,10 @@
 <div class="margin-top-10">
     <div class="vertical-center-row">
         <div align="center">
-           <h1>ZOX APP</h1>
+            <h1>ZOX APP</h1>
+        </div>
+        <div>
+            <button class="btn btn-danger log-out-btn" *ngIf="!isHomePage" (click)="clearStorage()" routerLink="/"> Switch Account</button>
         </div>
     </div>
 </div>
